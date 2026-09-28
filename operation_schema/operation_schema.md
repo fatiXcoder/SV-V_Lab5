@@ -1,0 +1,21 @@
+# Task 2: Complete Operation Schema
+
+| ID | Operation | Precondition | Input | Postcondition |
+|---|---|---|---|---|
+| OP1 | Perform Self-Check | System is powered on. | Sensor status, environmental-control device status | System verifies that all essential sensors and control devices are working correctly. |
+| OP2 | Load Artifact Information | System has successfully completed self-check and is in MONITORING mode. | Artifact ID, artifact details, required temperature and humidity limits | Artifact identification and environmental requirements are recorded in the system. |
+| OP3 | Monitor Environmental Conditions | System is in MONITORING or CONSERVATION_ACTIVE mode, and sensors are operational. | Temperature, humidity, light exposure, vibration, door status | Current environmental readings and chamber conditions are monitored and recorded. |
+| OP4 | Activate Conservation | Artifact information is loaded, chamber door is closed, and essential sensors are working correctly. | Artifact environmental profile, door status, sensor status | System enters CONSERVATION_ACTIVE mode and begins normal conservation activities. |
+| OP5 | Correct Temperature | System is in CONSERVATION_ACTIVE mode and temperature is outside the permitted range. | Current temperature, permitted temperature range | Temperature-control mechanism is activated to restore the required temperature. |
+| OP6 | Correct Humidity | System is in CONSERVATION_ACTIVE mode and humidity is outside the permitted range. | Current humidity, permitted humidity range | Humidity-control mechanism is activated to restore the required humidity. |
+| OP7 | Verify Environmental Conditions | A temperature or humidity correction has been attempted. | Current temperature, current humidity, permitted environmental limits | System confirms whether the environmental conditions have returned to the permitted ranges. |
+| OP8 | Activate Protection Response | Environmental conditions cannot be corrected within the allowed recovery period. | Environmental readings, recovery time, artifact requirements | System enters PROTECTION_MODE, activates protective measures, and generates an alert for the museum operator. |
+| OP9 | Reduce Light Exposure | System is in PROTECTION_MODE. | Current light exposure, permitted light level | Light exposure is reduced to help protect the artifact. |
+| OP10 | Activate Additional Environmental Controls | System is in PROTECTION_MODE. | Environmental readings, artifact requirements | Additional environmental controls are activated to protect the artifact. |
+| OP11 | Respond to Vibration | An artifact is inside the chamber and significant vibration is detected. | Vibration level, permitted vibration threshold | Risk-increasing activities are temporarily suspended, and the system enters VIBRATION_RESPONSE. |
+| OP12 | Verify Vibration Stabilization | System is in VIBRATION_RESPONSE and vibration has stopped or decreased. | Vibration readings, permitted threshold, stabilization period | System confirms that vibration has remained below the permitted threshold for the required stabilization period. |
+| OP13 | Suspend Conservation | Chamber door is opened while conservation is active. | Door status, current conservation activities | Normal conservation activities are immediately suspended while the chamber door is open. |
+| OP14 | Verify Chamber Conditions | Chamber door has been closed after being opened during conservation. | Door status, environmental readings, sensor status | System verifies environmental conditions and sensor status before allowing normal conservation to resume. |
+| OP15 | Switch to Emergency Power | System loses its main power supply and emergency power is available. | Main power status, emergency power availability | System switches to emergency power and continues protecting the artifact. |
+| OP16 | Perform Safe Shutdown | System loses power and emergency power is unavailable. | Main power status, emergency power availability | System records the power failure incident and enters a safe shutdown state. |
+| OP17 | Authorize Artifact Removal | Artifact is inside the chamber, the system confirms safe conditions, and no active protection response is underway. | Artifact ID, chamber safety status, protection response status | System authorizes the operator to remove the artifact. |
